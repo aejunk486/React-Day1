@@ -1,0 +1,27 @@
+import './App.css'
+import React, { useState } from 'react';
+
+export default function TextInput() {
+  const [name, setName] = useState('');
+  const [confirmedName, setConfirmedName] = useState('');
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      setConfirmedName(name); // ยืนยันชื่อเมื่อกด Enter
+    }
+  };
+  return (
+    <>
+      <input
+        type="text"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        onKeyDown={handleKeyDown}
+        placeholder="กรอกชื่อแล้วกด Enter"
+      />
+      {confirmedName && <p>ชื่อที่กรอกคือ: {confirmedName}</p>}
+    </>
+  );
+}
+
+
