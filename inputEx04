@@ -1,0 +1,31 @@
+import './App.css'
+import React, { useState } from 'react';
+
+function TextInput() {
+  const [name, setName] = useState('');
+  const [confirmedName, setConfirmedName] = useState('');
+
+  const handleSubmit = () => {
+    setConfirmedName(name);
+    setName(''); // ล้างช่อง input หลังจากยืนยัน
+    console.log(confirmedName);
+  };
+
+  return (
+    <>
+      <input
+        type="text"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        placeholder="กรอกชื่อ"
+      />
+      <p>
+        <button onClick={handleSubmit}>Submit</button>
+      </p>
+      {confirmedName && (
+        <p>ชื่อที่กรอกคือ: {confirmedName}</p>)}
+    </>
+  );
+}
+
+export default TextInput;
