@@ -1,0 +1,13 @@
+//Input Ex01
+import './App.css'
+
+export default function MyForm() {
+  return (
+    <>
+      <label>
+        Text input: <input name="myInput" />
+      </label>
+      <hr />
+    </>
+  );
+}
